@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GameOfTheMonth from './components/GameOfTheMonth.jsx';
-
-const title = 'Testing reload';
+import PreviousGames from './components/PreviousGames.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,6 +21,7 @@ export default class App extends React.Component {
     return (
     <div>
       <GameOfTheMonth game={this.state.game}/>
+      <PreviousGames />
     </div>
     )
   }
