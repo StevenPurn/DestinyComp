@@ -1,0 +1,47 @@
+{
+  "name": "destinycomp",
+  "version": "1.0.0",
+  "description": "Destiny companion app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StevenPurn/DestinyComp.git"
+  },
+  "keywords": [
+    "destiny"
+  ],
+  "author": "Steven Purn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StevenPurn/DestinyComp/issues"
+  },
+  "homepage": "https://github.com/StevenPurn/DestinyComp#readme",
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-2"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
