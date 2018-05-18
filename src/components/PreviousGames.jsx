@@ -35,11 +35,23 @@ export default class PreviousGames extends React.Component {
   render() {
     const games = this.state.games.map((game, index) => {
       return <PreviousGame game={game} key={index}/>
-    })
+    });
+    const previousGamesStyle = {
+      "display": "grid",
+      "height": "800px",
+      "gridTemplateRows": "repeat(6, 1fr)",
+      "gridTemplateColumns": "repeat(4, 1fr)",
+      "gridGap": "10px",
+      "textDecoration": "none",
+      "color": "white",
+      "align": "center",
+    }
     return (
     <div>
       <h1>Previous Months' Games</h1>
-      <div>{games}</div>
+      <div style={previousGamesStyle}>
+        {games}
+      </div>
     </div>
     )
   }
