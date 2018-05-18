@@ -22,37 +22,35 @@ const prevGames = [
     studio: 'Davey Wreden',
     imgUrl: 'https://upload.wikimedia.org/wikipedia/en/d/df/The_beginners_guide_cover_art.jpg',
   },
-]
+];
 
 export default class PreviousGames extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       games: prevGames,
-    }
+    };
   }
 
   render() {
-    const games = this.state.games.map((game, index) => {
-      return <PreviousGame game={game} key={index}/>
-    });
+    const games = this.state.games.map((game, index) => <PreviousGame game={game} key={index} />);
     const previousGamesStyle = {
-      "display": "grid",
-      "height": "800px",
-      "gridTemplateRows": "repeat(6, 1fr)",
-      "gridTemplateColumns": "repeat(4, 1fr)",
-      "gridGap": "10px",
-      "textDecoration": "none",
-      "color": "white",
-      "align": "center",
-    }
+      display: 'grid',
+      height: '800px',
+      gridTemplateRows: 'repeat(6, 1fr)',
+      gridTemplateColumns: 'repeat(4, 1fr)',
+      gridGap: '10px',
+      textDecoration: 'none',
+      color: 'white',
+      align: 'center',
+    };
     return (
-    <div>
-      <h1>Previous Months' Games</h1>
-      <div style={previousGamesStyle}>
-        {games}
+      <div>
+        <h1>Previous Months&apos; Games</h1>
+        <div style={previousGamesStyle}>
+          {games}
+        </div>
       </div>
-    </div>
-    )
+    );
   }
 }
