@@ -1,6 +1,29 @@
+import Card from '@material-ui/core/Card';
 import React from 'react';
-import Platform from './Platform.jsx';
-import HeaderImage from './HeaderImage.jsx';
+import Platform from './Platform';
+import HeaderImage from './HeaderImage';
+import Comment from './Comment';
+
+const comment = {
+  username: 'Oliver',
+  upvotes: 69,
+  body: 'This game was utter shit',
+  children: [
+    {
+      username: 'Andyson',
+      upvotes: 0,
+      body: 'I disagree, you are a bad man.',
+      children: [
+        {
+          username: 'Robin',
+          upvotes: 900,
+          body: 'Shut up Andy',
+          children: [],
+        },
+      ],
+    },
+  ],
+};
 
 const GameOfTheMonth = ({ game }) => {
   const headerStyle = {
@@ -14,6 +37,7 @@ const GameOfTheMonth = ({ game }) => {
   };
   const platforms = game.platforms.map((platform, index) => <Platform name={platform} key={index} />);
   const imgs = game.imgs.map((image, index) => <HeaderImage imgUrl={image} key={index} index={index} />);
+  const commentDiv = comment ? <Comment comment={comment} /> : null;
   return (
     <div>
       <div style={headerStyle}>{imgs}</div>
@@ -21,6 +45,7 @@ const GameOfTheMonth = ({ game }) => {
       <div>{game.studio}</div>
       <div>{game.releaseDate}</div>
       <div>{platforms}</div>
+      {commentDiv}
     </div>
   );
 };
