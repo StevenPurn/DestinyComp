@@ -7,7 +7,7 @@ import HeaderImage from './HeaderImage';
 const comments = [{
   username: 'Oliver',
   upvotes: 69,
-  body: 'This game was utter shit',
+  body: "This game wasn't all that good",
   date: '5/13/18',
   children: [
     {

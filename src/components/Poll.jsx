@@ -7,6 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   root: {
@@ -37,16 +38,21 @@ class Poll extends React.Component {
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-    
   }
 
   render() {
     const { classes, games } = this.props;
+    const paperStyle = {
+      width: '400px',
+      height: '300px',
+      padding: '15px',
+      margin: '15px',
+    };
     const choices = games.map(game =>
       <FormControlLabel value={game.name} control={<Radio color="primary" />} label={game.name} />);
 
     return (
-      <div className={classes.root}>
+      <Paper className={classes.root} style={paperStyle}>
         <FormControl component="fieldset" required className={classes.formControl}>
           <Typography gutterBottom variant="headline" component="h1">
             Next Month&apos;s Game
@@ -64,7 +70,7 @@ class Poll extends React.Component {
             Submit Vote
           </Button>
         </FormControl>
-      </div>
+      </Paper>
     );
   }
 }
