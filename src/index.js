@@ -27,7 +27,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <GameOfTheMonth game={this.state.game}/>
+        <GameOfTheMonth game={this.state.game} />
         <NextMonth />
         <PreviousGames />
       </div>

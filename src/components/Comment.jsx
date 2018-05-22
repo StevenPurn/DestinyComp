@@ -12,7 +12,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
@@ -53,17 +52,27 @@ class Comment extends React.Component {
     super(props);
     this.state = {
       expanded: false,
+      favorited: false,
     };
     this.handleExpandClick = this.handleExpandClick.bind(this);
+    this.handleFavoriteClick = this.handleFavoriteClick.bind(this);
   }
 
   handleExpandClick() {
     this.setState({ expanded: !this.state.expanded });
   }
 
+  handleFavoriteClick() {
+    const value = !this.state.favorited;
+    this.setState({
+      favorited: value,
+    });
+  }
+
   render() {
     const { classes, comment } = this.props;
     const children = comment.children.map(child => <Subcomment comment={child} />);
+    const favStyle = this.state.favorited ? { color: 'red' } : { color: 'grey' };
     return (
       <div style={rowStyle}>
         <Card className={classes.card}>
@@ -82,11 +91,12 @@ class Comment extends React.Component {
             </Typography>
           </CardContent>
           <CardActions className={classes.actions} disableActionSpacing>
-            <IconButton aria-label="Add to favorites">
+            <IconButton
+              aria-label="Add to favorites"
+              onClick={event => this.handleFavoriteClick(event)}
+              style={favStyle}
+            >
               <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="Share">
-              <ShareIcon />
             </IconButton>
             <IconButton
               className={classnames(classes.expand, {

@@ -38,7 +38,15 @@ const comments = [{
   upvotes: 240,
   body: 'This was probably my favorite game so far',
   date: '5/18/18',
-  children: [],
+  children: [
+    {
+      username: 'Pooja',
+      upvotes: 500,
+      body: "I don't get it, he was just a normal dad.",
+      date: '5/20/18',
+      children: [],
+    },
+  ],
 },
 ];
 

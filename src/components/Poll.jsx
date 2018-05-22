@@ -7,7 +7,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import db from '../../database/db';
 
 const styles = theme => ({
   root: {
@@ -38,7 +37,7 @@ class Poll extends React.Component {
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-
+    
   }
 
   render() {

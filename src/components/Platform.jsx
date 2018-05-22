@@ -6,15 +6,24 @@ const platformImgs = {
   'Xbox One': './images/xbox.png',
 };
 
-const style = {
+const divStyle = {
   display: 'inline-block',
   width: '100px',
+  height: '100px',
+  alignContent: 'center',
+};
+
+const imgStyle = {
+  display: 'inline-block',
+  width: '50px',
+  height: '50px',
+  alignSelf: 'center',
 };
 
 const Platform = (props) => {
   return (
-    <div style={style}>
-      <img alt="google.com" src={platformImgs[props.name]} />
+    <div style={divStyle}>
+      <img style={imgStyle} alt="google.com" src={platformImgs[props.name]} />
       <div>{props.name}</div>
     </div>
   );
