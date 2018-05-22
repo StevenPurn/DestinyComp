@@ -1,14 +1,19 @@
 import React from 'react';
 
 const platformImgs = {
-  'PlayStation 4': 'http://via.placeholder.com/35x35',
-  Steam: 'http://via.placeholder.com/35x35',
-  'Xbox One': 'http://via.placeholder.com/35x35',
+  'PlayStation 4': './images/playstation.png',
+  Steam: './images/steam.png',
+  'Xbox One': './images/xbox.png',
+};
+
+const style = {
+  display: 'inline-block',
+  width: '100px',
 };
 
 const Platform = (props) => {
   return (
-    <div>
+    <div style={style}>
       <img alt="google.com" src={platformImgs[props.name]} />
       <div>{props.name}</div>
     </div>

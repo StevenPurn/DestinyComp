@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GameOfTheMonth from './components/GameOfTheMonth.jsx';
-import PreviousGames from './components/PreviousGames.jsx';
-import NextMonth from './components/NextMonth.jsx';
+import GameOfTheMonth from './components/GameOfTheMonth';
+import PreviousGames from './components/PreviousGames';
+import NextMonth from './components/NextMonth';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ export default class App extends React.Component {
           'https://cdn.videogamesblogger.com/wp-content/uploads/2014/01/octodad-dadliest-catch-walkthrough.jpg',
           'https://www.touchtapplay.com/wp-content/uploads/2015/11/octodad-dadliest-catch-review.jpg',
           'https://i.ytimg.com/vi/zHgTF6YLUnE/hqdefault.jpg',
-          'https://cdn.mos.cms.futurecdn.net/e94febb22d0cff2e59f5f9b836afa95f.jpeg'
+          'https://cdn.mos.cms.futurecdn.net/e94febb22d0cff2e59f5f9b836afa95f.jpeg',
         ],
       },
     };

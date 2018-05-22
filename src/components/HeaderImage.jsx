@@ -6,35 +6,30 @@ const styles = [
     gridColumn: 'span 2',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    brightness: '50%',
   },
   {
     gridRow: 'span 3',
     gridColumn: 'span 3',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    brightness: '50%',
   },
   {
     gridRow: 'span 2',
     gridColumn: 'span 1',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    brightness: '50%',
   },
   {
     gridRow: 'span 2',
     gridColumn: 'span 3',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    brightness: '50%',
   },
   {
     gridRow: 'span 2',
     gridColumn: 'span 1',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    brightness: '50%',
   },
 ];
 

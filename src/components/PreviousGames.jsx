@@ -1,3 +1,4 @@
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import PreviousGame from './PreviousGame';
 
@@ -50,7 +51,9 @@ export default class PreviousGames extends React.Component {
     };
     return (
       <div>
-        <h1>Previous Months&apos; Games</h1>
+        <Typography gutterBottom variant="headline" component="h1">
+           Previous Months&apos; Games
+        </Typography>
         <div style={previousGamesStyle}>
           {games}
         </div>

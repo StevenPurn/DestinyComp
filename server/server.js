@@ -6,37 +6,75 @@ const path = require('path');
 const app = express();
 
 const HOST = process.env.HOST || 'http://localhost';
-const PORT = process.env.PORT || '1337';
+const PORT = process.env.PORT || '3000';
 
 app.use(parser.text());
 app.use(parser.json());
-app.use(express.static(path.join(__dirname, '/dist/')));
+app.use(express.static(path.join(__dirname, '/../dist')));
 
 app.listen(PORT, () => {
+  console.log(path.join(__dirname, '/../dist'));
   console.log(`listening on port ${PORT}`);
 });
 
-app.get('/game/:gameid', (req, res) => {
+app.get('/games/:gameid', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'text/html');
   res.send();
 });
 
-app.get('/gamedetails/:gameid', (req, res) => {
-  const query = `SELECT products.id, colors.name AS color, products.description, products.material, ratings.rating AS reviewScore, ratings.rating_count AS reviewcount, names.name AS product_name, products.price, products.sku
-    FROM products 
-    JOIN colors ON products.color_id = colors.id
-    JOIN names ON products.name_id = names.id
-    JOIN ratings ON products.id = ratings.product_id
-    WHERE products.id = ${req.params.gameid}`;
-  db.query(query, (err, data) => {
-    if (err) {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.end();
-    } else {
-      const stringData = JSON.stringify(data.rows[0]);
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.send(stringData);
-    }
-  });
+app.get('/games/:gameid/platforms', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'text/html');
+  db.query(`select * from games_platforms_junction where game_id = ${gameid}`)
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err);
+    });
 });
+
+app.get('/games/:gameid/comments', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'text/html');
+  db.query(`select * from comments where game_id = ${gameid}`)
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err);
+    });
+});
+
+app.get('/polls', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'text/html');
+  db.query('select * from polls order by id limit 1')
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err);
+    });
+});
+
+app.get('/games/:gameid/images', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'text/html');
+  db.query(`select * from images where game_id = ${gameid} order by id`)
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err);
+    });
+})
